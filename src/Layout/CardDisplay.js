@@ -2,10 +2,9 @@ import React, { useState, useEffect } from "react";
 import { listCards } from "./../utils/api";
 import { Link, useHistory } from "react-router-dom";
 
-function CardDisplay({ deck }) {
+function CardDisplay({ deck, cardList }) {
     const history = useHistory();
 
-    const [cardList, setCardList] = useState([]);
     const [cardIndex, setCardIndex] = useState(0);
     const [cardCount, setCardCount] = useState(0);
     const [flipped, setFlipped] = useState(false);
@@ -32,14 +31,6 @@ function CardDisplay({ deck }) {
     useEffect(() => {
         setCardCount(cardList.length);
     }, [cardList]);
-
-    useEffect(() => {
-        async function loadCards() {
-            const cards = await listCards(deck.id);
-            setCardList(cards);
-        }
-        loadCards();
-    }, [deck]);
 
     if (cardCount > 2) {
         return (

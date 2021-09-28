@@ -3,17 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import { listCards } from "./../utils/api";
 import CardDisplay from "./CardDisplay";
 
-function Study({ deck, deckList }) {
+function Study({ deck, deckList, cardList }) {
     const params = useParams();
-    const [cardList, setCardList] = useState([]);
-
-    useEffect(() => {
-        async function loadCards() {
-            const cards = await listCards(params.deckId);
-            setCardList(cards);
-        }
-        loadCards();
-    }, []);
 
     return (
         <>
@@ -25,7 +16,7 @@ function Study({ deck, deckList }) {
                 </ol>
             </nav>
             <h1>{deck.name}: Study</h1>
-            <CardDisplay deck={deck}/>
+            <CardDisplay deck={deck} cardList={cardList}/>
         </>
     );
 }

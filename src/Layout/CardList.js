@@ -2,7 +2,6 @@ import React from "react";
 import Card from "./Card";
 
 function CardList({ cardList, removeCard }) {
-
     return (
         <>
             <h5 style={{paddingTop: "1em"}}>Cards</h5>

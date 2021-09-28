@@ -25,10 +25,10 @@ function CreateCard({ deck, addCard }) {
                 <ol className="breadcrumb">
                     <li className="breadcrumb-item"><Link to="/">Home</Link></li>
                     <li className="breadcrumb-item"><Link to={`/decks/${deck.id}`}>{deck.name}</Link></li>
-                    <li className="breadcrumb-item active" aria-current="page">Create Card</li>
+                    <li className="breadcrumb-item active" aria-current="page">Add Card</li>
                 </ol>
             </nav>
-            <h1>Create Card</h1>
+            <h1>{deck.name}: Add Card</h1>
 
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">

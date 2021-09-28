@@ -50,7 +50,7 @@ function DeckInfo({ removeDeck, deckList }) {
         <>
             <Switch>
                 <Route path="/decks/:deckId/study">
-                    <Study deckList={deckList} deck={deck}/>
+                    <Study deckList={deckList} deck={deck} cardList={cardList}/>
                 </Route>
                 <Route path="/decks/:deckId/edit">
                     <EditDeck deck={deck} editDeck={editDeck}/>
