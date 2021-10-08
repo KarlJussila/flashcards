@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { listCards, readDeck, deleteDeck } from "./../utils/api";
-import { Link, useParams, Switch, Route } from "react-router-dom";
+import { Link, useParams, Switch, Route, useHistory } from "react-router-dom";
 import Study from "./Study";
 import CardList from "./CardList";
 import CreateCard from "./CreateCard";
@@ -9,6 +9,7 @@ import EditDeck from "./EditDeck";
 
 function DeckInfo({ removeDeck, deckList }) {
     const params = useParams();
+    const history = useHistory();
     const [cardList, setCardList] = useState([]);
     const [deck, setDeck] = useState({});
 
@@ -17,6 +18,7 @@ function DeckInfo({ removeDeck, deckList }) {
         if (confirm) {
             deleteDeck(deck.id);
             removeDeck(deck.id);
+            history.push("/");
         }
     }
 
